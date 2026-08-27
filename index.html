@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="hr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Protein Calculator</title>
+    <link rel="stylesheet" href="kalkulator.css">
+</head>
+
+<body>
+
+    <main class="protein-calculator">
+
+        <img class="ikonicaKalkulatora" src="IKONICA.png" alt="">
+
+        <!-- HEADER -->
+        <header class="calculator-header">
+            <span class="calculator-label">PROTEIN CALCULATOR</span>
+
+            <h1>Izračunaj koliko proteina trebaš dnevno</h1>
+
+            <p>
+                Unesi nekoliko osnovnih podataka i saznaj koliko proteina
+                ti je potrebno za ostvarenje tvog cilja.
+            </p>
+        </header>
+        <!-- PROGRESS BAR -->
+        <div class="calculator-progress">
+
+            <div class="progress-step active">
+                <span class="progress-number">01</span>
+                <span class="progress-title">Podaci</span>
+            </div>
+
+            <div class="progress-line"></div>
+
+            <div class="progress-step">
+                <span class="progress-number">02</span>
+                <span class="progress-title">Cilj</span>
+            </div>
+
+            <div class="progress-line"></div>
+
+            <div class="progress-step">
+                <span class="progress-number">03</span>
+                <span class="progress-title">Aktivnost</span>
+            </div>
+
+            <div class="progress-line"></div>
+
+            <div class="progress-step">
+                <span class="progress-number">04</span>
+                <span class="progress-title">Rezultat</span>
+            </div>
+
+        </div>
+
+
+        <!-- STEP 1 -->
+        <section class="calculator-step active" id="step-1">
+
+            <div class="step-number">01</div>
+
+            <h2>Osnovni podaci</h2>
+
+            <div class="form-group">
+                <label for="gender">Spol</label>
+
+                <select id="gender" name="gender">
+                    <option value="">Odaberi spol</option>
+                    <option value="male">Muško</option>
+                    <option value="female">Žensko</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="age">Godine</label>
+
+                <input type="number" id="age" name="age" min="15" max="100" placeholder="npr. 28">
+            </div>
+
+            <div class="form-group">
+                <label for="weight">Tjelesna težina</label>
+
+                <div class="input-with-unit">
+                    <input type="number" id="weight" name="weight" min="30" max="300" step="0.1" placeholder="npr. 82">
+
+                    <span>kg</span>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="height">Visina</label>
+
+                <div class="input-with-unit">
+                    <input type="number" id="height" name="height" min="100" max="250" placeholder="npr. 184">
+
+                    <span>cm</span>
+                </div>
+            </div>
+
+            <button type="button" id="next-step-1">
+                Nastavi
+            </button>
+
+        </section>
+
+
+        <!-- STEP 2 -->
+        <section class="calculator-step" id="step-2">
+
+            <div class="step-number">02</div>
+
+            <h2>Koji je tvoj cilj?</h2>
+
+            <p>Odaberi cilj koji želiš postići.</p>
+
+
+            <div class="goal-options">
+
+                <label class="goal-option">
+                    <input type="radio" name="goal" value="muscle">
+
+                    <span class="goal-content">
+                        <strong>Izgradnja mišića</strong>
+                        <small>
+                            Želim povećati mišićnu masu
+                        </small>
+                    </span>
+                </label>
+
+
+                <label class="goal-option">
+                    <input type="radio" name="goal" value="fat-loss">
+
+                    <span class="goal-content">
+                        <strong>Mršavljenje</strong>
+                        <small>
+                            Želim izgubiti masno tkivo i sačuvati mišiće
+                        </small>
+                    </span>
+                </label>
+
+
+                <label class="goal-option">
+                    <input type="radio" name="goal" value="maintenance">
+
+                    <span class="goal-content">
+                        <strong>Održavanje</strong>
+                        <small>
+                            Želim održavati trenutnu tjelesnu težinu
+                        </small>
+                    </span>
+                </label>
+
+            </div>
+
+
+            <button type="button" id="next-step-2">
+                Nastavi
+            </button>
+
+        </section>
+
+
+        <!-- STEP 3 -->
+        <section class="calculator-step" id="step-3">
+
+            <div class="step-number">03</div>
+
+            <h2>Koliko često treniraš?</h2>
+
+
+            <div class="activity-options">
+
+                <label class="activity-option">
+                    <input type="radio" name="activity" value="none">
+
+                    <span>
+                        <strong>Ne treniram</strong>
+                        <small>Vrlo malo fizičke aktivnosti</small>
+                    </span>
+                </label>
+
+
+                <label class="activity-option">
+                    <input type="radio" name="activity" value="low">
+
+                    <span>
+                        <strong>1–2 puta tjedno</strong>
+                        <small>Povremena fizička aktivnost</small>
+                    </span>
+                </label>
+
+
+                <label class="activity-option">
+                    <input type="radio" name="activity" value="medium">
+
+                    <span>
+                        <strong>3–4 puta tjedno</strong>
+                        <small>Redoviti treninzi</small>
+                    </span>
+                </label>
+
+
+                <label class="activity-option">
+                    <input type="radio" name="activity" value="high">
+
+                    <span>
+                        <strong>5+ puta tjedno</strong>
+                        <small>Vrlo aktivan način života</small>
+                    </span>
+                </label>
+
+            </div>
+
+
+            <button type="button" id="calculate">
+                Izračunaj moj unos proteina
+            </button>
+
+        </section>
+
+
+        <!-- RESULT -->
+        <section class="calculator-result" id="result">
+
+            <span class="result-label">
+                TVOJ PREPORUČENI DNEVNI UNOS
+            </span>
+
+            <h2>
+                <span id="protein-min">0</span> –
+                <span id="protein-max">0</span>
+                g
+            </h2>
+
+            <p>
+                proteina dnevno
+            </p>
+
+
+            <div class="result-details">
+
+                <div class="result-item">
+                    <span>Cilj</span>
+                    <strong id="result-goal">
+                        —
+                    </strong>
+                </div>
+
+
+                <div class="result-item">
+                    <span>Tvoja težina</span>
+                    <strong>
+                        <span id="result-weight">0</span> kg
+                    </strong>
+                </div>
+
+
+                <div class="result-item">
+                    <span>Preporuka po danu</span>
+                    <strong>
+                        <span id="result-average">0</span> g
+                    </strong>
+                </div>
+
+            </div>
+
+
+            <!-- WHEY RECOMMENDATION -->
+            <div class="product-recommendation">
+
+                <span>PREPORUKA ZA TEBE</span>
+
+                <h3>
+                    Whey Protein
+                </h3>
+
+                <p>
+                    Jednostavan način da nadoknadiš proteine koji ti
+                    nedostaju kroz prehranu.
+                </p>
+
+                <a href="/whey-protein">
+                    Pogledaj preporučeni protein
+                </a>
+
+            </div>
+
+
+            <p class="calculator-disclaimer">
+                Ovaj kalkulator daje okvirnu procjenu dnevnih potreba
+                za proteinima i nije zamjena za stručni zdravstveni savjet.
+            </p>
+
+        </section>
+
+    </main>
+    <script src="script.js"></script>
+
+</body>
+
+</html>
