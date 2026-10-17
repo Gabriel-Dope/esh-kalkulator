@@ -1,0 +1,21 @@
+/* Učitaj nakon postojećeg CSS-a */
+.esh-nutrition{margin-top:30px;padding:24px;border:1px solid #ff6a00;border-radius:16px;background:#111;color:#f5f5f5}
+.esh-nutrition h2{font-size:24px;margin:14px 0;color:#fff}
+.esh-note{color:#aaa;font-size:14px;line-height:1.6;margin:0 0 22px}
+.esh-calories{text-align:center;margin:24px 0 32px}
+.esh-calories strong{font-size:44px;color:#ff6a00;display:block}
+.esh-calories span{color:#bbb}
+.esh-rings{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px;margin-bottom:38px}
+.esh-ring-item{text-align:center;display:flex;flex-direction:column;align-items:center;gap:8px}
+.esh-ring-item span{font-size:13px;color:#aaa}
+.esh-ring{--ring-percent:0%;--ring-color:#ff6a00;width:min(100%,150px);aspect-ratio:1;border-radius:50%;background:conic-gradient(var(--ring-color) var(--ring-percent),#303030 0);display:grid;place-items:center;position:relative}
+.esh-ring::before{content:'';position:absolute;inset:12px;background:#111;border-radius:50%}
+.esh-ring strong{position:relative;z-index:1;font-size:23px}
+.esh-products{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px}
+.esh-product{border:1px solid #333;border-radius:12px;padding:14px;background:#1b1b1b;display:flex;flex-direction:column;gap:10px}
+.esh-product img{width:100%;height:155px;object-fit:contain;border-radius:8px;background:#222}
+.esh-product h3{font-size:16px;line-height:1.4;margin:0;color:#fff}
+.esh-product p{margin:0;color:#ddd}
+.esh-product a{margin-top:auto;text-align:center;background:#ff6a00;color:#111;text-decoration:none;font-weight:700;padding:12px;border-radius:8px}
+.esh-product a:hover{background:#ff7b1a}
+@media(max-width:650px){.esh-nutrition{padding:16px}.esh-rings{gap:7px}.esh-ring::before{inset:9px}.esh-ring strong{font-size:15px}.esh-ring-item b{font-size:12px}.esh-products{grid-template-columns:1fr}.esh-product img{height:180px}.esh-calories strong{font-size:36px}}
