@@ -1,0 +1,53 @@
+/* ESH rezultat: jedinstveni prikaz; ostali koraci kalkulatora ostaju netaknuti */
+.calculator-result.esh-unified-mode.active > :not(.esh-dashboard) { display:none !important; }
+.esh-dashboard { --esh-orange:#ff6a00; color:#f8f8f8; width:100%; max-width:100%; box-sizing:border-box; text-align:left; }
+.esh-dashboard * { box-sizing:border-box; }
+.esh-dashboard .esh-eyebrow { color:var(--esh-orange); font-size:11px; font-weight:800; letter-spacing:1.5px; }
+.esh-head { text-align:center; margin:0 0 24px; }
+.esh-head h2 { color:#fff; font-size:clamp(25px,4vw,36px); margin:9px 0 5px; }
+.esh-head p,.esh-dashboard .esh-section-title p { color:#a6a6a6; margin:0; font-size:14px; }
+.esh-top-grid { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:clamp(16px,2vw,24px); }
+.esh-kcal-panel,.esh-track-panel,.esh-macro-card,.esh-product-card { background:linear-gradient(150deg,#191919,#101010); border:1px solid #333; border-radius:16px; }
+.esh-kcal-panel,.esh-track-panel { padding:24px; min-width:0; }
+.esh-kcal-panel { border-color:#a94b0b; }
+.esh-kcal-number { display:flex; align-items:baseline; flex-wrap:wrap; gap:9px; margin:16px 0; }
+.esh-kcal-number strong { color:var(--esh-orange); font-size:clamp(36px,5vw,52px); line-height:1; }
+.esh-kcal-number span,.esh-kcal-panel p { color:#b8b8b8; font-size:14px; }
+.esh-track-panel label { display:block; margin-bottom:10px; font-weight:700; font-size:14px; }
+.esh-input-row { display:flex; align-items:center; gap:10px; }
+.esh-input-row input { width:100%; min-width:0; background:#0b0b0b; color:white; border:1px solid #444; border-radius:9px; padding:11px 12px; font-size:17px; }
+.esh-input-row span { color:#aaa; }
+.esh-track-labels { display:flex; justify-content:space-between; margin:18px 0 8px; font-size:13px; }
+.esh-track { height:13px; border-radius:30px; background:#333; overflow:hidden; }
+#esh-progress-fill { height:100%; width:0; background:linear-gradient(90deg,#ff6a00,#ffae49); border-radius:30px; transition:width .3s ease; }
+.esh-remaining { margin:12px 0 0; color:#ccc; font-size:14px; }
+.esh-remaining strong { color:#fff; }
+.esh-section-title { display:flex; align-items:end; justify-content:space-between; gap:12px; margin:34px 0 16px; }
+.esh-section-title h3 { color:#fff; font-size:22px; margin:6px 0 0; }
+.esh-macros,.esh-products-grid { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:clamp(14px,1.5vw,22px); }
+.esh-macro-card { padding:22px 10px; display:flex; flex-direction:column; align-items:center; text-align:center; }
+.esh-macro-ring { width:min(180px,100%); aspect-ratio:1; border-radius:50%; background:conic-gradient(var(--ring-color) var(--ring-value),#333 0); display:grid; place-items:center; position:relative; }
+.esh-macro-ring::before { content:""; position:absolute; inset:12px; border-radius:50%; background:#171717; }
+.esh-macro-ring strong { position:relative; font-size:clamp(17px,2.5vw,24px); color:#fff; }
+.esh-macro-card h4 { color:#fff; margin:15px 0 3px; font-size:16px; }
+.esh-macro-card p { color:#aaa; margin:0; font-size:13px; }
+.esh-product-card { overflow:hidden; display:flex; flex-direction:column; }
+.esh-product-card img { display:block; width:100%; height:clamp(170px,15vw,210px); object-fit:contain; background:#222; }
+.esh-product-content { padding:16px; display:flex; flex-direction:column; flex:1; }
+.esh-product-content h4 { margin:0 0 9px; color:#fff; font-size:16px; }
+.esh-product-price { margin:0 0 14px; color:#ff9b4d; font-weight:700; }
+.esh-product-content a { display:block; margin-top:auto; background:var(--esh-orange); color:#111; text-decoration:none; font-weight:800; text-align:center; border-radius:8px; padding:11px; font-size:13px; }
+.esh-product-content a:hover { background:#ff8e38; }
+.esh-disclaimer { margin:24px 0 0; color:#888; font-size:12px; line-height:1.6; }
+@media(max-width:700px) { .esh-top-grid { grid-template-columns:1fr; } .esh-products-grid { grid-template-columns:repeat(2,minmax(0,1fr)); } .esh-section-title { align-items:start; flex-direction:column; } }
+@media(max-width:480px) { .esh-macros { gap:7px; } .esh-macro-card { padding:13px 4px; } .esh-macro-ring::before { inset:8px; } .esh-macro-card h4 { font-size:12px; } .esh-macro-card p { font-size:11px; } .esh-products-grid { grid-template-columns:1fr; } .esh-kcal-panel,.esh-track-panel { padding:18px; } }
+
+/* Na mobitelu svaki makronutrijent ima svoj red i veliki krug. */
+@media (max-width: 700px) {
+  .esh-macros { grid-template-columns: 1fr; gap: 16px; }
+  .esh-macro-card { padding: 22px 16px; }
+  .esh-macro-ring { width: min(180px, 100%); }
+  .esh-macro-ring::before { inset: 12px; }
+  .esh-macro-card h4 { font-size: 16px; }
+  .esh-macro-card p { font-size: 13px; }
+}
