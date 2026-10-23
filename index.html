@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Protein Calculator</title>
     <link rel="stylesheet" href="kalkulator.css">
-    <link rel="stylesheet" href="esh-dodatak.css">
+    <link rel="stylesheet" href="esh-dashboard.css">
 </head>
 
 <body>
@@ -218,11 +218,39 @@
 
 
             <button type="button" id="calculate">
-                Izračunaj moj unos proteina
+                Izračunaj moj plan
             </button>
 
         </section>
 
+
+        <!-- ESH LOADING ANIMATION -->
+        <section class="calculator-loading" id="calculator-loading" aria-label="Priprema tvog plana" tabindex="-1">
+            <div class="esh-loading-badge">ESH • PERSONALIZIRANI PLAN</div>
+
+            <h2>Pripremamo tvoj plan prehrane</h2>
+            <p class="esh-loading-intro">Još samo trenutak do tvojih rezultata.</p>
+
+            <div class="esh-loading-ring" id="esh-loading-ring"
+                 role="progressbar" aria-label="Priprema rezultata"
+                 aria-valuemin="0" aria-valuemax="100" aria-valuenow="0">
+                <div class="esh-loading-ring-inner">
+                    <strong id="esh-loading-percent">0%</strong>
+                    <span>DOVRŠENO</span>
+                </div>
+            </div>
+
+            <p class="esh-loading-message" id="esh-loading-message" aria-live="polite">
+                Analiziramo tvoje podatke
+            </p>
+
+            <div class="esh-loading-tasks" role="list">
+                <div class="esh-loading-task active" role="listitem"><span class="esh-task-dot"></span>Analiziramo tvoje podatke</div>
+                <div class="esh-loading-task" role="listitem"><span class="esh-task-dot"></span>Računamo kalorijske potrebe</div>
+                <div class="esh-loading-task" role="listitem"><span class="esh-task-dot"></span>Pripremamo makronutrijente</div>
+                <div class="esh-loading-task" role="listitem"><span class="esh-task-dot"></span>Odabiremo ESH preporuke</div>
+            </div>
+        </section>
 
         <!-- RESULT -->
         <section class="calculator-result" id="result">
@@ -231,11 +259,37 @@
                 TVOJ PREPORUČENI DNEVNI UNOS
             </span>
 
-            <h2>
-                <span id="protein-min">0</span> –
-                <span id="protein-max">0</span>
-                g
-            </h2>
+
+            <div class="calorie-result">
+                <p>Tvoj preporučeni dnevni unos</p>
+
+                <h2>
+                    <span id="calorie-target">0</span> kcal
+                </h2>
+
+                <p>Cilj: <span id="result-goal"></span></p>
+
+                <div class="calorie-tracker">
+                    <label for="calories-consumed">
+                        Koliko si kalorija danas unio?
+                    </label>
+
+                    <input type="number" id="calories-consumed" min="0" value="0">
+
+                    <div class="calorie-progress">
+                        <div id="calorie-progress-fill"></div>
+                    </div>
+
+                    <div class="calorie-stats">
+                        <span id="calorie-percentage">0%</span>
+                        <span>
+                            Preostalo:
+                            <strong id="calories-remaining">0</strong> kcal
+                        </span>
+                    </div>
+                </div>
+            </div>
+
 
             <p>
                 proteina dnevno
@@ -262,9 +316,6 @@
 
                 <div class="result-item">
                     <span>Preporuka po danu</span>
-                    <strong>
-                        <span id="result-average">0</span> g
-                    </strong>
                 </div>
 
             </div>
@@ -300,7 +351,7 @@
 
     </main>
     <script src="script.js"></script>
-    <script src="esh-dodatak.js"></script>
+    <script src="esh-dashboard.js"></script>
 
 </body>
 

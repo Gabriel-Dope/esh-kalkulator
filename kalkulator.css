@@ -55,10 +55,10 @@ body {
    ========================================= */
 
 .protein-calculator {
-    width: 100%;
-    max-width: 850px;
-    margin: 20px auto;
-    padding: 20px;
+    width: calc(100% - 48px);
+    max-width: 1400px;
+    margin: 30px auto;
+    padding: 20px 0 45px;
 }
 
 
@@ -792,6 +792,7 @@ body {
 @media (max-width: 768px) {
 
     .protein-calculator {
+        width: 100%;
         margin: 30px auto;
 
         padding: 15px;
@@ -918,4 +919,212 @@ body {
     color: #ff5c52;
 
     font-size: 12px;
+}
+
+
+/* =========================================
+   ESH ANIMACIJA PRIJE REZULTATA
+   ========================================= */
+
+.calculator-loading {
+    display: none;
+    position: relative;
+    isolation: isolate;
+    overflow: hidden;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 520px;
+    padding: 48px 28px;
+    border: 1px solid rgba(255, 106, 0, 0.45);
+    border-radius: 18px;
+    background: linear-gradient(145deg, #1b1511 0%, #101010 55%, #090909 100%);
+    text-align: center;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.35);
+}
+
+.calculator-loading::before {
+    content: "";
+    position: absolute;
+    z-index: -1;
+    top: -260px;
+    left: 50%;
+    width: 650px;
+    height: 650px;
+    transform: translateX(-50%);
+    background: radial-gradient(circle, rgba(255, 106, 0, 0.11), transparent 67%);
+    pointer-events: none;
+}
+
+.calculator-loading.active {
+    display: flex;
+    animation: stepIn 0.35s ease both;
+}
+
+.esh-loading-badge {
+    color: var(--orange);
+    font-size: 12px;
+    font-weight: 800;
+    letter-spacing: 1.5px;
+}
+
+.calculator-loading h2 {
+    margin: 12px 0 4px;
+    color: var(--white);
+    font-size: clamp(24px, 3vw, 34px);
+    line-height: 1.2;
+}
+
+.esh-loading-intro {
+    color: #aaa;
+    font-size: 14px;
+}
+
+.esh-loading-ring {
+    --esh-progress: 0%;
+    display: grid;
+    position: relative;
+    place-items: center;
+    width: 190px;
+    max-width: 100%;
+    aspect-ratio: 1;
+    margin: 30px 0 19px;
+    border-radius: 50%;
+    background: conic-gradient(from -90deg, var(--orange) var(--esh-progress), #303030 0);
+    box-shadow: 0 0 42px rgba(255, 106, 0, 0.12);
+}
+
+.esh-loading-ring::before {
+    content: "";
+    position: absolute;
+    inset: 12px;
+    border-radius: 50%;
+    background: #131313;
+}
+
+.esh-loading-ring-inner {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.esh-loading-ring-inner strong {
+    color: var(--white);
+    font-size: 43px;
+    font-weight: 800;
+    line-height: 1;
+    font-variant-numeric: tabular-nums;
+}
+
+.esh-loading-ring-inner span {
+    margin-top: 8px;
+    color: #aaa;
+    font-size: 10px;
+    letter-spacing: 1.2px;
+    font-weight: 700;
+}
+
+.esh-loading-message {
+    min-height: 27px;
+    color: var(--white);
+    font-size: 17px;
+    font-weight: 700;
+}
+
+.esh-loading-tasks {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 12px 18px;
+    width: min(100%, 680px);
+    margin-top: 23px;
+    text-align: left;
+}
+
+.esh-loading-task {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    min-width: 0;
+    padding: 12px 14px;
+    border: 1px solid #303030;
+    border-radius: 10px;
+    background: #181818;
+    color: #777;
+    font-size: 13px;
+    transition: color 0.2s ease, border-color 0.2s ease, background 0.2s ease;
+}
+
+.esh-task-dot {
+    flex: 0 0 9px;
+    width: 9px;
+    height: 9px;
+    border-radius: 50%;
+    background: #555;
+}
+
+.esh-loading-task.active {
+    border-color: rgba(255, 106, 0, 0.55);
+    background: rgba(255, 106, 0, 0.07);
+    color: var(--white);
+}
+
+.esh-loading-task.active .esh-task-dot {
+    background: var(--orange);
+    box-shadow: 0 0 12px var(--orange);
+    animation: esh-loading-pulse 1s ease-in-out infinite alternate;
+}
+
+.esh-loading-task.done {
+    color: #c4c4c4;
+}
+
+.esh-loading-task.done .esh-task-dot {
+    background: var(--orange);
+}
+
+@keyframes esh-loading-pulse {
+    from { opacity: 0.45; }
+    to { opacity: 1; }
+}
+
+@media (max-width: 600px) {
+    .calculator-loading {
+        min-height: 0;
+        padding: 35px 20px;
+    }
+
+    .esh-loading-ring {
+        width: 160px;
+        margin: 24px 0 16px;
+    }
+
+    .esh-loading-ring-inner strong {
+        font-size: 36px;
+    }
+
+    .esh-loading-message {
+        font-size: 15px;
+    }
+
+    .esh-loading-tasks {
+        grid-template-columns: 1fr;
+        gap: 8px;
+        margin-top: 16px;
+    }
+
+    .esh-loading-task {
+        padding: 9px 12px;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .calculator-loading.active,
+    .esh-loading-task.active .esh-task-dot {
+        animation: none;
+    }
+
+    .esh-loading-task {
+        transition: none;
+    }
 }
